@@ -1,0 +1,16 @@
+p {
+  color: white;
+}
+.correct-guess {
+  background-color: green;
+}
+.close-guess {
+  background-color: #999966;
+}
+
+.previous-guess__tile {
+  background-color: rgba(72, 72, 72, 0.5);
+}
+.guess-list {
+  padding: 0;
+}

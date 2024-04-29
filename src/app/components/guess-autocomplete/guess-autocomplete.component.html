@@ -1,0 +1,15 @@
+<div>
+  <ul class="video-game__list">
+    @for (game of store.filteredGames(); track game.id) {
+    <li style="display: inline">
+      <button
+        mat-stroked-button
+        color="primary"
+        (click)="store.selectGame(game)"
+      >
+        {{ game.title }}
+      </button>
+    </li>
+    }
+  </ul>
+</div>

@@ -1,0 +1,31 @@
+@if (store.previousGuesses().length>0) {
+<div class="previous-guesses">
+  <ul class="guess-list">
+    @for (guess of store.previousGuesses(); track $index){
+
+    <li style="display: inline">
+      <mat-card class="previous-guess__tile">
+        <mat-card-content>
+          <div>
+            <p>Guess #{{ store.previousGuesses().length - $index }}:</p>
+            <p>{{ guess.title }}</p>
+            <p [className]="getClassForReleaseYear(guess.releaseYear)">
+              ({{ guess.releaseYear }})
+            </p>
+            <p [className]="getClassForGenre(guess.genre)">
+              Genre: {{ guess.genre }}
+            </p>
+            <p [className]="getClassForPlatforms(guess.platforms)">
+              Platforms: {{ guess.platforms }}
+            </p>
+            <p [className]="getClassForLocalPlayers(guess.localMaximumPlayers)">
+              Maximum Local Players: {{ guess.localMaximumPlayers }}
+            </p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </li>
+    }
+  </ul>
+</div>
+}
