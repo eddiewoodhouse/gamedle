@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>{{ data.won ? 'You got it!' : 'Out of guesses' }}</h2>
+<mat-dialog-content>
+  @if (data.won) {
+  <p>You guessed it in {{ data.guessCount }} {{ data.guessCount === 1 ? 'try' : 'tries' }}.</p>
+  } @else {
+  <p>The answer was:</p>
+  } @if (data.answer) {
+  <div class="answer-card">
+    <p class="answer-title">{{ data.answer.title }}</p>
+    <p>{{ data.answer.releaseYear }} &middot; {{ data.answer.genre }}</p>
+    <p>{{ data.answer.platforms.join(', ') }}</p>
+    <p>Local max players: {{ data.answer.localMaximumPlayers }}</p>
+  </div>
+  }
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-flat-button color="primary" (click)="playAgain()">Play Again</button>
+</mat-dialog-actions>

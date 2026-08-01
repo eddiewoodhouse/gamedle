@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { StatsService } from '../../services/stats.service';
 
 @Component({
   selector: 'app-header',
-  standalone: true,
   imports: [],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-
+  private readonly statsService = inject(StatsService);
+  readonly stats = this.statsService.stats;
 }
