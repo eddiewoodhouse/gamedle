@@ -1,25 +1,24 @@
-@if (store.previousGuesses().length>0) {
+@if (store.previousGuesses().length > 0) {
 <div class="previous-guesses">
   <ul class="guess-list">
-    @for (guess of store.previousGuesses(); track $index){
-
+    @for (result of store.previousGuesses(); track result.guess.id) {
     <li style="display: inline">
       <mat-card class="previous-guess__tile">
         <mat-card-content>
           <div>
             <p>Guess #{{ store.previousGuesses().length - $index }}:</p>
-            <p>{{ guess.title }}</p>
-            <p [className]="getClassForReleaseYear(guess.releaseYear)">
-              ({{ guess.releaseYear }})
+            <p>{{ result.guess.title }}</p>
+            <p [className]="verdictClass(result.comparison.releaseYear)">
+              ({{ result.guess.releaseYear }})
             </p>
-            <p [className]="getClassForGenre(guess.genre)">
-              Genre: {{ guess.genre }}
+            <p [className]="verdictClass(result.comparison.genre)">
+              Genre: {{ result.guess.genre }}
             </p>
-            <p [className]="getClassForPlatforms(guess.platforms)">
-              Platforms: {{ guess.platforms }}
+            <p [className]="verdictClass(result.comparison.platforms)">
+              Platforms: {{ result.guess.platforms.join(', ') }}
             </p>
-            <p [className]="getClassForLocalPlayers(guess.localMaximumPlayers)">
-              Maximum Local Players: {{ guess.localMaximumPlayers }}
+            <p [className]="verdictClass(result.comparison.localMaximumPlayers)">
+              Maximum Local Players: {{ result.guess.localMaximumPlayers }}
             </p>
           </div>
         </mat-card-content>

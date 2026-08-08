@@ -1,13 +1,15 @@
-import { Component, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { GamedleStore } from '../../stores/game.store';
 
 @Component({
   selector: 'app-guess-autocomplete',
-  standalone: true,
-  imports: [MatButtonModule],
+  imports: [MatButtonModule, MatProgressSpinnerModule],
   templateUrl: './guess-autocomplete.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './guess-autocomplete.component.scss',
 })
 export class GuessAutocompleteComponent {
-  @Input() store: any;
+  readonly store = inject(GamedleStore);
 }

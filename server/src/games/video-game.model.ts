@@ -1,15 +1,3 @@
-/**
- * Represents a game.
- */
-export interface VideoGame {
-  id: number;
-  genre: VideoGameGenre;
-  title: string;
-  releaseYear: number;
-  platforms: VideoGamePlatform[];
-  localMaximumPlayers: number;
-}
-
 export type VideoGameGenre =
   | 'Action'
   | 'Adventure'
@@ -40,3 +28,12 @@ export type VideoGamePlatform =
   | 'Game Boy'
   | 'Sega Genesis'
   | 'Mobile';
+
+export interface VideoGame {
+  id: number;
+  genre: VideoGameGenre;
+  title: string;
+  releaseYear: number;
+  platforms: VideoGamePlatform[];
+  localMaximumPlayers: number;
+}

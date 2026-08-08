@@ -1,12 +1,11 @@
-<div>
+<div class="autocomplete">
+  @if (store.isSearching()) {
+  <mat-spinner diameter="20"></mat-spinner>
+  }
   <ul class="video-game__list">
-    @for (game of store.filteredGames(); track game.id) {
+    @for (game of store.searchResults(); track game.id) {
     <li style="display: inline">
-      <button
-        mat-stroked-button
-        color="primary"
-        (click)="store.selectGame(game)"
-      >
+      <button mat-stroked-button color="primary" (click)="store.submitGuess(game.id)">
         {{ game.title }}
       </button>
     </li>

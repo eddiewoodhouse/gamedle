@@ -1,5 +1,10 @@
 <div class="guess-game">
-  <app-guess-input [store]="store"></app-guess-input>
-  <app-guess-autocomplete [store]="store"></app-guess-autocomplete>
-  <app-previous-guesses [store]="store"></app-previous-guesses>
+  @if (!store.isGameOver()) {
+  <p class="guesses-remaining">
+    Guesses remaining: {{ store.guessesRemaining() }} / {{ store.maxGuesses() }}
+  </p>
+  <app-guess-input></app-guess-input>
+  <app-guess-autocomplete></app-guess-autocomplete>
+  }
+  <app-previous-guesses></app-previous-guesses>
 </div>
