@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
-import { GamedleStore, Verdict } from '../../stores/game.store';
+import { Direction, GamedleStore, Verdict } from '../../stores/game.store';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
@@ -13,8 +13,13 @@ export class PreviousGuessesComponent {
   readonly store = inject(GamedleStore);
 
   verdictClass(verdict: Verdict): string {
-    if (verdict === 'correct') return 'correct-guess';
-    if (verdict === 'close') return 'close-guess';
+    return `verdict verdict--${verdict}`;
+  }
+
+  /** Arrow pointing toward the answer for a numeric field, or '' when correct. */
+  arrow(direction: Direction | null): string {
+    if (direction === 'higher') return '↑';
+    if (direction === 'lower') return '↓';
     return '';
   }
 }

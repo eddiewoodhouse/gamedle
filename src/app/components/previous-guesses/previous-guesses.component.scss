@@ -1,11 +1,48 @@
 p {
   color: white;
 }
-.correct-guess {
-  background-color: green;
+
+// Verdict styling — shared by the guess tiles and the legend swatches.
+.verdict {
+  border-radius: 4px;
+  padding: 2px 6px;
 }
-.close-guess {
-  background-color: #999966;
+.verdict--correct {
+  background-color: #2e7d32; // green
+}
+.verdict--close {
+  background-color: #b59f3b; // amber
+  color: #1a1a1a;
+}
+.verdict--wrong {
+  background-color: rgba(120, 40, 40, 0.45); // muted red
+}
+.verdict--neutral {
+  background-color: rgba(120, 120, 120, 0.4);
+  font-style: italic;
+}
+
+.arrow {
+  font-weight: 700;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+}
+
+.guess-heading {
+  font-weight: 700;
+}
+.guess-title {
+  font-weight: 700;
+  font-size: 1.05rem;
 }
 
 .previous-guess__tile {

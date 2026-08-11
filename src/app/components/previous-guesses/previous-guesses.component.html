@@ -1,24 +1,41 @@
 @if (store.previousGuesses().length > 0) {
 <div class="previous-guesses">
+  <ul class="legend" aria-label="What the colours mean">
+    <li><span class="verdict verdict--correct">Correct</span></li>
+    <li><span class="verdict verdict--close">Close</span></li>
+    <li><span class="verdict verdict--wrong">Wrong</span></li>
+    <li><span class="verdict verdict--neutral">N/A</span></li>
+  </ul>
   <ul class="guess-list">
     @for (result of store.previousGuesses(); track result.guess.id) {
     <li style="display: inline">
       <mat-card class="previous-guess__tile">
         <mat-card-content>
           <div>
-            <p>Guess #{{ store.previousGuesses().length - $index }}:</p>
-            <p>{{ result.guess.title }}</p>
-            <p [className]="verdictClass(result.comparison.releaseYear)">
-              ({{ result.guess.releaseYear }})
+            <p class="guess-heading">Guess #{{ store.previousGuesses().length - $index }}:</p>
+            <p class="guess-title">{{ result.guess.title }}</p>
+            <p [className]="verdictClass(result.comparison.releaseYear.verdict)">
+              Year: {{ result.guess.releaseYear }}
+              <span class="arrow">{{ arrow(result.comparison.releaseYear.direction) }}</span>
             </p>
-            <p [className]="verdictClass(result.comparison.genre)">
-              Genre: {{ result.guess.genre }}
+            <p [className]="verdictClass(result.comparison.genres)">
+              Genre: {{ result.guess.genres.join(', ') }}
             </p>
             <p [className]="verdictClass(result.comparison.platforms)">
               Platforms: {{ result.guess.platforms.join(', ') }}
             </p>
-            <p [className]="verdictClass(result.comparison.localMaximumPlayers)">
-              Maximum Local Players: {{ result.guess.localMaximumPlayers }}
+            <p [className]="verdictClass(result.comparison.localMaximumPlayers.verdict)">
+              Max local players: {{ result.guess.localMaximumPlayers }}
+              <span class="arrow">{{ arrow(result.comparison.localMaximumPlayers.direction) }}</span>
+            </p>
+            <p [className]="verdictClass(result.comparison.developer)">
+              Developer: {{ result.guess.developer }}
+            </p>
+            <p [className]="verdictClass(result.comparison.franchise)">
+              Franchise: {{ result.guess.franchise ?? 'N/A' }}
+            </p>
+            <p [className]="verdictClass(result.comparison.perspective)">
+              Perspective: {{ result.guess.perspective ?? 'N/A' }}
             </p>
           </div>
         </mat-card-content>

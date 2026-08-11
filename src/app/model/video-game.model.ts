@@ -3,11 +3,14 @@
  */
 export interface VideoGame {
   id: number;
-  genre: VideoGameGenre;
   title: string;
   releaseYear: number;
+  genres: VideoGameGenre[];
   platforms: VideoGamePlatform[];
   localMaximumPlayers: number;
+  developer: string;
+  franchise: string | null;
+  perspective: VideoGamePerspective | null;
 }
 
 export type VideoGameGenre =
@@ -40,3 +43,5 @@ export type VideoGamePlatform =
   | 'Game Boy'
   | 'Sega Genesis'
   | 'Mobile';
+
+export type VideoGamePerspective = '2D' | '3D' | 'First-person' | 'Isometric';
