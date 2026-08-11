@@ -13,7 +13,17 @@ export type VideoGameGenre =
   | 'Survival horror'
   | 'Rhythm'
   | 'Strategy'
-  | 'Party';
+  | 'Party'
+  | 'Metroidvania'
+  | 'Roguelike'
+  | 'Simulation'
+  | 'Open world'
+  | 'MMORPG'
+  | 'Battle Royale'
+  | 'MOBA'
+  | 'Visual novel'
+  | "Beat 'em up"
+  | 'Stealth';
 
 export type VideoGamePlatform =
   | 'PC'
@@ -26,7 +36,16 @@ export type VideoGamePlatform =
   | 'NES'
   | 'SNES'
   | 'Game Boy'
+  | 'Game Boy Advance'
+  | 'Nintendo DS'
+  | 'Nintendo 3DS'
+  | 'PSP'
+  | 'PlayStation Vita'
   | 'Sega Genesis'
+  | 'Sega Dreamcast'
+  | 'Sega Saturn'
+  | 'Arcade'
+  | 'Atari 2600'
   | 'Mobile';
 
 export type VideoGamePerspective = '2D' | '3D' | 'First-person' | 'Isometric';
