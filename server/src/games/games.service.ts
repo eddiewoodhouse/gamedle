@@ -19,7 +19,12 @@ export class GamesService {
     return this.games.find((game) => game.id === id);
   }
 
-  pickRandom(): VideoGame {
-    return this.games[Math.floor(Math.random() * this.games.length)];
+  /** Picks a random game, avoiding `excludeId` so a player never gets the same answer twice in a row. */
+  pickRandom(excludeId?: number): VideoGame {
+    const pool =
+      excludeId === undefined || this.games.length <= 1
+        ? this.games
+        : this.games.filter((game) => game.id !== excludeId);
+    return pool[Math.floor(Math.random() * pool.length)];
   }
 }

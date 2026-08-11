@@ -51,8 +51,8 @@ export class GamedleStore {
   readonly isStarting = signal(false);
 
   readonly previousGuesses = signal<GuessResult[]>([]);
-  readonly maxGuesses = signal(8);
-  readonly guessesRemaining = signal(8);
+  readonly maxGuesses = signal(10);
+  readonly guessesRemaining = signal(10);
   readonly isGameOver = signal(false);
   readonly won = signal(false);
   readonly answer = signal<VideoGame | null>(null);
