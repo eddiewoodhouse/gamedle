@@ -56,9 +56,14 @@ Rework `guess-scoring.ts` and `video-game.model.ts`:
   known factual errors.
 - Grow to 300+ games in review-able batches, verifying shaky fields.
 
-### Phase 5 — Playtest & tune
+### Phase 5 — Playtest & tune ✅
 - Play rounds against the new model; tune close windows and the guess budget
   from observed win-rate.
+- **Done** — see [`phase-5-playtest.md`](./phase-5-playtest.md). A Monte-Carlo
+  playtest over all 300 answers validated the tuning: close windows (year ±3,
+  players ±1) don't affect win-rate, and the 10-guess budget is deliberately
+  forgiving (skilled play wins in ≤4). No code changes; the weakest attribute
+  (player count) is noted for a future backlog.
 
 ## Explicitly out of scope
 - Image/cover-guessing mode.
