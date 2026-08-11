@@ -30,8 +30,9 @@ export class GamesController {
   }
 
   @Post('game/new')
-  newGame(@Res({ passthrough: true }) res: Response) {
-    const answer = this.games.pickRandom();
+  newGame(@Req() req: Request, @Res({ passthrough: true }) res: Response) {
+    const previous = this.sessions.get(req.cookies?.[SESSION_COOKIE]);
+    const answer = this.games.pickRandom(previous?.answerId);
     const { sessionId } = this.sessions.create(answer.id);
     res.cookie(SESSION_COOKIE, sessionId, {
       httpOnly: true,
