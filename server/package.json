@@ -7,6 +7,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test \"dist/**/*.test.js\"",
     "start": "node dist/main.js",
     "start:dev": "tsc -p tsconfig.json --watch --preserveWatchOutput & node --watch dist/main.js"
   },
