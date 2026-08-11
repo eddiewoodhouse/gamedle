@@ -7,8 +7,9 @@
   } @if (data.answer) {
   <div class="answer-card">
     <p class="answer-title">{{ data.answer.title }}</p>
-    <p>{{ data.answer.releaseYear }} &middot; {{ data.answer.genre }}</p>
+    <p>{{ data.answer.releaseYear }} &middot; {{ data.answer.genres.join(', ') }}</p>
     <p>{{ data.answer.platforms.join(', ') }}</p>
+    <p>{{ data.answer.developer }}</p>
     <p>Local max players: {{ data.answer.localMaximumPlayers }}</p>
   </div>
   }

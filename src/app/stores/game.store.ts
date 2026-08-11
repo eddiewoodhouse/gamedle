@@ -3,13 +3,25 @@ import { HttpClient } from '@angular/common/http';
 import { VideoGame } from '../model/video-game.model';
 import { StatsService } from '../services/stats.service';
 
-export type Verdict = 'correct' | 'close' | 'wrong';
+export type Verdict = 'correct' | 'close' | 'wrong' | 'neutral';
+
+/** Which way the answer lies relative to the guess, for numeric attributes. */
+export type Direction = 'higher' | 'lower';
+
+export interface NumericComparison {
+  verdict: Verdict;
+  /** null when exactly correct; otherwise the direction of the answer. */
+  direction: Direction | null;
+}
 
 export interface GuessComparison {
-  releaseYear: Verdict;
-  genre: Verdict;
+  releaseYear: NumericComparison;
+  localMaximumPlayers: NumericComparison;
+  genres: Verdict;
   platforms: Verdict;
-  localMaximumPlayers: Verdict;
+  developer: Verdict;
+  franchise: Verdict;
+  perspective: Verdict;
 }
 
 export interface GuessResult {
