@@ -10,7 +10,7 @@ export interface GameSession {
   lastActivity: number;
 }
 
-export const MAX_GUESSES_PER_GAME = 8;
+export const MAX_GUESSES_PER_GAME = 10;
 const SESSION_TTL_MS = 24 * 60 * 60 * 1000;
 
 @Injectable()
